@@ -28,7 +28,7 @@ public class CalculadoraFrete {
 
 	}
 
-	public CalculoFreteDTO calcValTotalFrete(String peso, String cepOrigem, String cepDestino,
+	public CalculoFreteDTO calcValTotalFrete(double peso, String cepOrigem, String cepDestino,
 			String nomeDestinatario) {
 
 		CalculoFreteDTO dto = new CalculoFreteDTO();
@@ -36,7 +36,7 @@ public class CalculadoraFrete {
 		dto.setCepOrigem(cepOrigem);
 		dto.setCepDestino(cepDestino);
 		dto.setNomeDestinatario(nomeDestinatario);
-		dto.setPeso(Double.parseDouble(peso));
+		dto.setPeso(peso);
 
 		JSONObject jsonOrigem = getJSONViaCep(cepOrigem);
 		JSONObject jsonDestino = getJSONViaCep(cepDestino);
@@ -47,11 +47,13 @@ public class CalculadoraFrete {
 		estrategiasFrete.add(new CalcFreteDefault());
 
 		for (EstragiaCalFrete estragia : estrategiasFrete) {
-			if(estragia.isValid(jsonOrigem, jsonDestino)) {
+			if (estragia.isValid(jsonOrigem, jsonDestino)) {
 				estragia.calculaFrete(dto);
 			}
 		}
 
 		return dto;
 	}
+
+
 }

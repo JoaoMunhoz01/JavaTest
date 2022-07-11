@@ -12,10 +12,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "CalculoFrete")
 public class CalculoFreteDTO {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String nomeDestinatario;
     private double peso;
     private String cepOrigem;
@@ -25,7 +25,7 @@ public class CalculoFreteDTO {
     private String dataConsulta;
 
     public CalculoFreteDTO() {
-    	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/uuuu HH:mm:ss");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/uuuu HH:mm:ss");
         ZonedDateTime now = ZonedDateTime.now();
         this.nomeDestinatario = "";
         this.peso = 0;
@@ -34,7 +34,7 @@ public class CalculoFreteDTO {
         this.vlrTotal = 0;
         this.diasEntrega = 0;
         this.dataConsulta = dtf.format(now);
-        
+
     }
 
     // GETTERS
@@ -62,6 +62,10 @@ public class CalculoFreteDTO {
         return diasEntrega;
     }
 
+    public String getDataConsulta() {
+        return dataConsulta;
+    }
+
     // SETTERS
     public void setNomeDestinatario(String nomeDestinatario) {
         this.nomeDestinatario = nomeDestinatario;
@@ -87,13 +91,15 @@ public class CalculoFreteDTO {
         this.diasEntrega = diasEntrega;
     }
 
-	@Override
-	public String toString() {
-		return "CalculoFreteDTO [nomeDestinatario=" + nomeDestinatario + ", peso=" + peso + ", cepOrigem=" + cepOrigem
-				+ ", cepDestino=" + cepDestino + ", vlrTotal=" + vlrTotal + ", diasEntrega=" + diasEntrega
-				+ ", dataConsulta=" + dataConsulta + "]";
-	}
-    
-    
+    public void setDataConsulta(String dataConsulta) {
+        this.dataConsulta = dataConsulta;
+    }
+
+    @Override
+    public String toString() {
+        return "CalculoFreteDTO [nomeDestinatario=" + nomeDestinatario + ", peso=" + peso + ", cepOrigem=" + cepOrigem
+                + ", cepDestino=" + cepDestino + ", vlrTotal=" + vlrTotal + ", diasEntrega=" + diasEntrega
+                + ", dataConsulta=" + dataConsulta + "]";
+    }
 
 }
