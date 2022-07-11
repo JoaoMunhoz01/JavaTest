@@ -46,10 +46,12 @@ Deve ser persistido no banco os valores da cotação os valores consultados: “
  Requisições Esperam Body no seguinte formato:
  
  body = 
+ 
  {
     "nomeDestinatario": "João",
     "peso": 32.0,
     "cepOrigem": "79009-130",
     "cepDestino": "79074-020"
  }
+ 
 urlRequisição = http://localhost:8080/CalculadorFrete/
