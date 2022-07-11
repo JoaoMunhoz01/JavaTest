@@ -43,7 +43,7 @@ Deve ser persistido no banco os valores da cotação os valores consultados: “
  
  
  ---------------------------------------------------------------------------------------------------------------------------------------------------------
- Requisições Esperam Body no seguinte formato:
+ Requisição POST Espera Body no seguinte formato:
  
  body = 
  
